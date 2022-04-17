@@ -9,7 +9,7 @@ public class MysqlCon {
     public static Connection getConnection() {
         if (conn != null)
             return conn;
-        String database = "exercise";
+        String database = "test";
         String Username = "root";
         String password = "password";
         return getConnection(database, Username, password);

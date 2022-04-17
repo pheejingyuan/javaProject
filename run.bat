@@ -1,1 +1,1 @@
-java -cp class;lib/* Test
+java -cp class;lib/* Main

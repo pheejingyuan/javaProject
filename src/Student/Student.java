@@ -14,5 +14,4 @@ public class Student extends Object {
     private @Getter @Setter String password;
     private @Getter @Setter String name;
     private @Getter @Setter String phoneNumber;
-
 }

@@ -1,8 +1,12 @@
 package Admin;
 
 public class AdminView {
-    
-    public static void manageFaculty(){
-        AdminController.selectStudents();
+    private AdminController adminController;
+
+    public AdminView() {
+        adminController = new AdminController();
+    }
+
+    public void manageFaculty() {
     }
 }
