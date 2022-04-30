@@ -51,6 +51,23 @@ public class StudentController {
         return temp;
     }
 
+    public Student getStudentByID(int id) {
+        Student temp = null;
+        try {
+            Statement stmt = connect.createStatement();
+            String query = "select * from user where role = 'Student' and userID = " + "'" + id + "';";
+            // select * from user where role = 'Student' and name = 'name'
+            ResultSet rs = stmt.executeQuery(query);
+            while (rs.next()) {
+                temp = new Student(rs.getInt(1), rs.getString("password"), rs.getString(3), rs.getString(4));
+            }
+        } catch (SQLException e) {
+            System.out.println("Error on getStudentByName");
+            System.out.println(e.getMessage());
+        }
+        return temp;
+    }
+
     public boolean addStudent(Student student) {
         boolean result = false;
         try {
@@ -79,7 +96,7 @@ public class StudentController {
             Statement stmt = connect.createStatement();
             String query = String.format(
                     "update user set password = '%s', name = '%s', phoneNumber = '%s' where userID = %d;",
-                    newStudent.getPassword(), newStudent.getName(), newStudent.getPhoneNumber(),
+                    newStudent.getPassword(), oldStudent.getName(), newStudent.getPhoneNumber(),
                     oldStudent.getStudentID());
             boolean outcome = stmt.execute(query);
             int outcome2 = stmt.getUpdateCount();

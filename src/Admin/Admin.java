@@ -1,5 +1,6 @@
 package Admin;
 
+import User.User;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -9,7 +10,7 @@ import lombok.ToString;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-public class Admin {
+public class Admin implements User{
     private @Getter @Setter int adminID;
     private @Getter @Setter String password;
     private @Getter @Setter String name;
